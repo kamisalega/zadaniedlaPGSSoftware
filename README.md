@@ -1,0 +1,2 @@
+# zadaniedlaPGSSoftware
+Rozwiązanie zadań
