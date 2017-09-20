@@ -1,6 +1,4 @@
-/**
- * Created by kamilsalega on 05.08.2017.
- */
+
 
 $(document).ready(function () {
     $('.delete-book').on('click', function () {
@@ -33,12 +31,12 @@ $(document).ready(function () {
 
     var bookIdList = [];
 
-    #('.checkboxBook').click(function () {
+    $('.checkboxMusic').click(function () {
         var id = $(this).attr('id');
         if (this.checked) {
             bookIdList.push(id);
         } else {
-            bookIdList.splice(bookIdList.indexOf(id), 1);
+            bookIdList.splice(musicIdList.indexOf(id), 1);
         }
 
     })
@@ -48,7 +46,7 @@ $(document).ready(function () {
         var path = /*[[@{/}]]*/ 'removeList';
         /*]]>*/
         bootbox.confirm({
-            message: "Czy jesteś pewien że chcesz usnąć wybraną książke? Tego nie będzie można cofnąć.",
+            message: "Czy jesteś pewien że chcesz usnąć wybraną piosenkę? Tego nie będzie można cofnąć.",
             buttons: {
                 cancel: {
                     label: '<i class="fa fa-times></i> Cancel'
@@ -62,7 +60,7 @@ $(document).ready(function () {
                     $.ajax({
                         type: 'POST',
                         url: path,
-                        data: JSON.stringify(bookIdList),
+                        data: JSON.stringify(musicIdList),
                         contentType: "application/json",
                         success: function (res) {
                             console.log(res);
@@ -77,7 +75,7 @@ $(document).ready(function () {
             }
         });
     })
-    $("selectAllBooks").click(function () {
+    $("selectAllMusic").click(function () {
         if ($(this).prop("checked") == true) {
             $(".checkBox").click();
         } else if ($(this).prop("checked") == false) {

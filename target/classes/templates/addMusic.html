@@ -1,10 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
+<head th:replace="common/header :: common-header"/>
+
 <body>
+<div th:replace="common/header :: navbar"/>
+
+<div class="container">
+    <form class="form-horizontal" th:action="@{/music/add}" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <legend class="center-block">Dodaj informacje o nowej piosence <span style="font-size: small"> * pole jest wymagane. </span>
+            </legend>
+
+
+            <!--Tytuł-->
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="title">* Tytuł</label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" id="title" name="title" th:value="${music.title}"
+                           required="required"
+                           placeholder="Tytuł"/>
+                    <span class="help-block">Tytuł piosenki</span>
+                </div>
+            </div>
+
+            <!--Autor-->
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="author">* Autor</label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" id="author" name="author" th:value="${music.author}"
+                           required="required"
+                           placeholder="Autor"/>
+                    <span class="help-block">Autor piosenki</span>
+                </div>
+            </div>
+
+            <!--Kategoria-->
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="genre">* Gatunek</label>
+                <div class="col-md-8">
+                    <select th:value="${music.genre}" id="genre" required="required" name="genre"
+                            class="form-control">
+                        <option value="" selected="selected" disabled="disabled">Proszę wybrać opcje</option>
+                        <option value="Rock" th:selected="(${music.genre}=='Rock')">Rock</option>
+                        <option value="Techno" th:selected="(${music.genre}=='Techno')">Techno</option>
+                        <option value="Jazz" th:selected="(${music.genre}=='Jazz')">Jazz</option>
+                        <option value="House" th:selected="(${music.genre}=='House')">House</option>
+                        <option value="Hip-hop" th:selected="(${music.genre}=='Hip-hop')">Hip-hop</option>
+                        <option value="Metal" th:selected="(${music.genre}=='Metal')">Metal</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <!--Format-->
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="format">Format</label>
+                <div class="col-md-8">
+                    <select th:value="${music.format}" name="format" id="format" class="form-control">
+                        <option value="mp3">mp3</option>
+                        <option value="wav">wav</option>
+                        <option value="wav">ogg</option>
+                    </select>
+                </div>
+            </div>
+
+            <!--Prześlij zdjęcie-->
+            <div class="form-group">
+                <div class="col-md-2">
+                    <label for="musicImage">Prześlij zdjęcie książki</label>
+                </div>
+                <div class="col-md-8">
+                    <input id="musicImage" type="file" name="musicImage" th:value="${music.musicImage}"/>
+                </div>
+            </div>
+
+            <!--Dodaj formularz-->
+            <div class="form-group">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <button type="submit" class="btn btn-success">Dodaj Piosenkę</button>
+                    <a class="btn btn-danger" th:href="@{/}">Anuluj</a>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+
+<div th:replace="common/header :: body-bottom-scripts"/>
 
 </body>
 </html>

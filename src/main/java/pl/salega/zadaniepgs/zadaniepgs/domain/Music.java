@@ -12,13 +12,9 @@ public class Music {
     private Long id;
     private String title;
     private String author;
-    private String genere;
+    private String genre;
     private String format;
     private boolean active = true;
-
-    @Column(columnDefinition = "text")
-    private String description;
-    private int inStockNumber;
 
     @Transient
     private MultipartFile musicImage;
@@ -48,12 +44,12 @@ public class Music {
         this.author = author;
     }
 
-    public String getGenere() {
-        return genere;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setGenere(String genere) {
-        this.genere = genere;
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     public String getFormat() {
@@ -70,22 +66,6 @@ public class Music {
 
     public void setActive(boolean active) {
         this.active = active;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getInStockNumber() {
-        return inStockNumber;
-    }
-
-    public void setInStockNumber(int inStockNumber) {
-        this.inStockNumber = inStockNumber;
     }
 
     public MultipartFile getMusicImage() {
