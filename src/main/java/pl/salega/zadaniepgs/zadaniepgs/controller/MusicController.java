@@ -36,7 +36,7 @@ public class MusicController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addMusicPost(@ModelAttribute("music") Music music, HttpServletRequest request) {
-        
+
         musicService.save(music);
         MultipartFile musicImage = music.getMusicImage();
         try {
@@ -62,7 +62,7 @@ public class MusicController {
     }
 
     @RequestMapping("/updateMusic")
-    public String updatemusic(@RequestParam("id") Long id, Model model) {
+    public String updateMusic(@RequestParam("id") Long id, Model model) {
         Music music = musicService.findOne(id);
         model.addAttribute("music", music);
         return "updateMusic";
@@ -70,6 +70,7 @@ public class MusicController {
 
     @RequestMapping(value = "/updateMusic", method = RequestMethod.POST)
     public String updateMusicPost(@ModelAttribute("music") Music music, HttpServletRequest request) {
+
         musicService.save(music);
 
         MultipartFile musicImage = music.getMusicImage();
@@ -90,7 +91,6 @@ public class MusicController {
         }
         return "redirect:/music/musicInfo?id=" + music.getId();
 
-
     }
 
 
@@ -100,6 +100,22 @@ public class MusicController {
         model.addAttribute("musicList", musicList);
 
         return "musicList";
+    }
+
+    @RequestMapping(value = "/remove", method = RequestMethod.POST)
+    public String remove(@ModelAttribute("id") String id, Model model
+    ) {
+
+
+            musicService.removeOne(Long.parseLong(id.substring(9)));
+
+
+
+        List<Music> musicList = musicService.findAll();
+
+        model.addAttribute("musicList", musicList);
+
+        return "redirect:/music/musicList";
     }
 
 }

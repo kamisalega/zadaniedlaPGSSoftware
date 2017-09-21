@@ -12,4 +12,6 @@ public interface MusicService {
 
     Music findOne(Long id);
 
+    void removeOne(Long id);
+
 }

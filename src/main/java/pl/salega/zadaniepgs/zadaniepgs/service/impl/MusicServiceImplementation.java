@@ -7,6 +7,7 @@ import pl.salega.zadaniepgs.zadaniepgs.repository.MusicRepository;
 import pl.salega.zadaniepgs.zadaniepgs.service.MusicService;
 
 import java.util.List;
+
 @Service
 public class MusicServiceImplementation implements MusicService {
 
@@ -26,5 +27,10 @@ public class MusicServiceImplementation implements MusicService {
     @Override
     public Music findOne(Long id) {
         return musicRepository.findOne(id);
+    }
+
+    @Override
+    public void removeOne(Long id) {
+        musicRepository.delete(id);
     }
 }
