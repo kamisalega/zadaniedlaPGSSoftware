@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
+<head th:replace="common/header :: common-header"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
+<script>
+    (function () {
+        'use strict';
+        var topScorers = angular.module("topScorers", []);
+        topScorers.controller("nameCtrl", function ($scope, $http) {
+            var req = {
+                headers: {
+                    'X-Mashape-Key': 'kxSXmUymofmshFHhhKxWOSJpqJsJp1I3zNnjsnqKwhITAiC1zw'
+                },
+                url: 'https://sportsop-soccer-sports-open-data-v1.p.mashape.com/v1/leagues/serie-a/seasons/15-16/topscorers'
+            };
+
+            $http(req).then(function successCallback(response) {
+                console.log(response.data.data.topscorers);
+                $scope.topscorers = response.data.data.topscorers;
+            });
+        });
+    })();
+
+</script>
+
+
+<body ng-app="topScorers" class="bgserie">
+<div th:replace="common/header :: navbar"/>
+
+
+<div class="container tablecontent">
+    <header>
+        <div class="logo">
+            <img th:src="@{/image/serie_a.png}" class="img-responsive"/>
+        </div>
+
+        <div class="slogan clearfix">
+            <h1>Top Strzelcy Serie A</h1>
+            <p>sezon 2016/2016</p>
+        </div>
+    </header>
+    <div ng-controller="nameCtrl">
+        <div class="table-responsive tablesize">
+            <table id="serieATable" class="table table-hover table-striped">
+                <thead>
+                <tr class="headertable">
+                    <th class="position">POZYCJA</th>
+                    <th class="player">ZAWODNIK</th>
+                    <th class="goals">GOLE</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="rows" ng-repeat="topscorer in topscorers | limitTo:10 track by $index">
+                    <td class="position1">{{ $index + 1 }}</td>
+                    <td class="player1">{{ topscorer.fullname }}</td>
+                    <td class="goals1">{{ topscorer.goals }}</td>
+                </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div th:replace="common/header :: body-bottom-scripts"/>
+
+<div class="footer">
+    <hr style="width:50%;background-color:#fff;"/>
+    powered by PGS software
+    <hr style="width:50%;background-color:#fff;"/>
+</div>
+</body>
+
+</html>

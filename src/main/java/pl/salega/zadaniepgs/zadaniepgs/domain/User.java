@@ -6,13 +6,18 @@ import pl.salega.zadaniepgs.zadaniepgs.domain.security.Authority;
 import pl.salega.zadaniepgs.zadaniepgs.domain.security.UserRole;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class User implements UserDetails {
+public class User implements Serializable, UserDetails {
 
+    /**
+     * The Serial Version UID for Serializable classes.
+     */
+    private static final long serialVersionUID = 1l;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

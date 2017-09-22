@@ -106,10 +106,7 @@ public class MusicController {
     public String remove(@ModelAttribute("id") String id, Model model
     ) {
 
-
-            musicService.removeOne(Long.parseLong(id.substring(9)));
-
-
+        musicService.removeOne(Long.parseLong(id.substring(9)));
 
         List<Music> musicList = musicService.findAll();
 
@@ -117,5 +114,7 @@ public class MusicController {
 
         return "redirect:/music/musicList";
     }
+
+
 
 }

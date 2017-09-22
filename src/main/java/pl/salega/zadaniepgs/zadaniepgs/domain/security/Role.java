@@ -1,11 +1,16 @@
 package pl.salega.zadaniepgs.zadaniepgs.domain.security;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Role {
+public class Role implements Serializable {
+    /**
+     * The Serial Version UID for Serializable classes.
+     */
+    private static final long serialVersionUID = 1l;
 
     @Id
     private int roleId;

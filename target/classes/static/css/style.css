@@ -183,3 +183,78 @@ footer {
     color: #FFF;
     font-size: 12px;
 }
+
+.logo {
+    width: 20%;
+    float: left;
+}
+
+.slogan {
+    width: 80%;
+    margin-bottom: 2%;
+}
+
+.position, .goals {
+    width: 10%;
+    text-align: center;
+    color: #fff;
+}
+
+.position1, .goals1 {
+    width: 10%;
+    text-align: center;
+    color: #000;
+}
+
+.player1 {
+    color: #000;
+}
+
+.slogan p, .slogan h1 {
+    color: #fff;
+}
+
+tr.rows .goals1 {
+    border-left: 1px solid #fff;
+}
+
+tr.rows .position1 {
+    border-right: 1px solid #fff;
+}
+
+.tablecontent {
+    width: 60% !important;
+    font-family: 'Roboto', sans-serif;
+}
+
+.table{
+    width: 100%;
+    max-width: 760px;
+    border-collapse: collapse;
+    border-spacing: 2px;
+    border:0;
+}
+
+.tablesize .rows {
+    background-color: #1b6d85;
+}
+
+.player {
+    width: 80%;
+}
+
+.bgserie {
+    background-color: #2F3134;
+}
+
+.headertable {
+    background-color: #3B712C;
+    color: #fff;
+}
+
+.footer {
+    text-align: center;
+    color: #fff;
+    background-color: #000;
+    padding: 20px 0 20px 0;
+}

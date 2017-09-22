@@ -3,10 +3,16 @@ package pl.salega.zadaniepgs.zadaniepgs.domain.security;
 import pl.salega.zadaniepgs.zadaniepgs.domain.User;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "user_role")
-public class UserRole {
+public class UserRole implements Serializable {
+
+    /**
+     * The Serial Version UID for Serializable classes.
+     */
+    private static final long serialVersionUID = 1l;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
